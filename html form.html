@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function seterror(id, error) {
+            element = document.getElementById(id);
+            element.getElementsByClassName('error')[0].innerHTML = error;
+        }
+
+
+        function validateForm() {
+            var val=true;
+            var x = document.forms["myForm"]["fname"].value;
+            if (x.length <4) {
+               seterror("name","length of name is too short");
+                val= false;
+            }
+            var mobile = document.forms["myForm"]["mymobile"].value;
+            if(mobile.length!=10)
+            {
+                seterror("mobile","mobile number should consist of 10 digits");
+                val= false;
+            }
+            return val;
+        }
+    </script>
+</head>
+<h1>Welcome to my form</h1>
+<style>
+    .formname input {
+        width: 500px;
+        padding: 10px 10px;
+        border-radius: 8px;
+
+    }
+
+    .error {
+        color: red;
+        margin-left: 5px;
+    }
+</style>
+<br>
+<br>
+
+<body>
+    <form name="myForm" action="" onsubmit="return validateForm()" method="post">
+        <div class="formname" id="name">
+            name <input type="text" id="name" name="fname" placeholder="enter your name" required><span
+                class="error">*</span>
+        </div>
+
+
+        <br>
+        <div>gender: male <input type="radio" name="mygender" id="" placeholder="male">
+            female <input type="radio" name="mygender" id="">
+            prefer not to say <input type="radio" name="mygender" id="">
+        </div>
+        <br>
+        <div class="formname" id="mobile">
+            mobile: <input type="number" name="mymobile" placeholder="enter your mobile number" id=""><span
+                class="error">*</span>
+        </div>
+        <br>
+        <div class="formname" id="email">
+            email: <input type="email" name="myemail" placeholder="enter your email" id="" required><span
+                class="error">*</span>
+        </div>
+        <br>
+
+        date of birth <input type="date" name="" id="">
+        </div>
+        <br>
+        <div class="formname">
+            enter your college: <input type="text" name="" placeholder="enter your college" id="" required><span
+                class="error">*</span>
+        </div>
+        <br>
+        are you eligible : <input type="checkbox" name="myeligibility" id="">
+        <br>
+        <input type="submit" value="submit" style="width: 100px;">
+
+    </form>
+</body>
+
+
+
+</html>
